@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    {% block content %}
+        <body>
+            <p> Last price: {{ last_price.last_price }} </p>
+            <p> Average price: {{ average_price }}
+                <table border="1">
+                    <tr>
+                        {% for price in last_ten %}
+                            <td>Price from last minute: {{ price.current_price }}</td>
+                        </tr>
+                    {% endfor %}
+                    <tr>
+                        <td> Minimum price from last 10min: {{ min_price }} </td>
+                    </tr>
+                    <tr>
+                        <td> Maximum price from last 10min: {{ high_price }} </td>
+                    </tr>
+                </table>
+            </body>
+        </html>
+    {% endblock %}
